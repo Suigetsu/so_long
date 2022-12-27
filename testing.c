@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 15:20:11 by mlagrini          #+#    #+#             */
-/*   Updated: 2022/12/22 13:08:15 by mlagrini         ###   ########.fr       */
+/*   Updated: 2022/12/27 12:20:53 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,50 @@ int window_destroyer(int key, t_vars *var)
 		exit(1);    
 	}
 	return (0);
+}
+
+// int	movement(int key, t_vars *var)
+// {
+// 	int	count;
+	
+// 	count = 0;
+// 	if (key == 13)
+// 	{
+// 		ft_printf("up\n");
+// 		count += 1;
+// 		ft_printf("%d\n")
+// 	}
+// }
+
+int right_move(int key, t_vars *var)
+{
+    int 	i;
+    int 	j;
+	char	tmp;
+
+    i = 1;
+    while (i < var->wh.h - 1)
+    {
+        j = 1;
+        while (j < var->wh.w - 2)
+        {
+            if (var->wh.test[i][j] == 'P' && var->wh.test[i][j + 1] != 1)
+            {
+                if (key == 2)
+                {
+					var->wh.test[i][j] = '0';
+					var->wh.test[i][j + 1] = 'P';
+                    mlx_put_image_to_window(var->mlx, var->win, var->img, j*64, i*64);
+                    mlx_put_image_to_window(var->mlx, var->win, var->test.p1, (j + 1)*64, i*64);
+					break;
+                }
+            }
+            
+            j++;
+        }
+        i++;
+    }
+    return(0);
 }
 
 void    upper_wall(t_vars *var)
@@ -268,18 +312,22 @@ void    map_read(t_vars *var)
     var->wh.w = ft_strlen(s) - 1;
     var->wh.h = 1;
     var->map = ft_strdup(s);
+    free (s);
     while (s)
     {
         s = get_next_line(fd);
         if (!s)
             {
+                close (fd);
                 free (s);
                 break;
             }
         var->map = ft_strjoin(var->map, s);
+        free (s);
         var->wh.h += 1;
     }
     var->wh.test = ft_split(var->map, '\n');
+    free (var->map);
 }
 
 int	main(void)
@@ -296,8 +344,7 @@ int	main(void)
 	while(mok < var.wh.h)
 		ft_printf("%s\n", var.wh.test[mok++]);
 	var.win = mlx_new_window(var.mlx, var.wh.w * 64, var.wh.h * 64, "test");
-
-	mlx_hook(var.win, 2, 0, window_destroyer, &var);
+    mlx_hook(var.win, 2, 0, window_destroyer, &var);
     upper_wall(&var);
     left_wall(&var);
     lower_wall(&var);
@@ -306,5 +353,6 @@ int	main(void)
     coll(&var);
     player(&var);
     exit_game(&var);
+    mlx_hook(var.win, 2, 0, right_move, &var);
 	mlx_loop(var.mlx);
 }
