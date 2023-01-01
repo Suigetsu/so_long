@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 11:23:03 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/01 11:30:48 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/01 14:45:47 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,21 +94,4 @@ void	playerthree(t_vars *var)
 							var->p3.th_downpath1, &var->img_x, &var->img_y);
 	var->p3.threedown2 = mlx_xpm_file_to_image(var->mlx, \
 							var->p3.th_downpath2, &var->img_x, &var->img_y);
-}
-
-void	show_player(t_vars *var)
-{
-	var->i = 1;
-	while (var->i < var->w_h.height - 1)
-	{
-		var->j = 1;
-		while (var->j < var->w_h.width - 1)
-		{
-			if (var->w_h.game[var->i][var->j] == 'P')
-				mlx_put_image_to_window(var->mlx, var->win, \
-				var->p1.oneright1, var->j * 64, var->i * 64);
-			var->j++;
-		}
-	var->i++;
-	}
 }
