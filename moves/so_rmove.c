@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 11:30:34 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/03 03:08:35 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/03 05:09:27 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,3 @@ void	right_evolution(int count, t_vars *var)
 	else
 		rightimg1(var);
 }
-
