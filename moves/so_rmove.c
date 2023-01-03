@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 11:30:34 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/03 05:09:27 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/03 20:16:27 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ void	rightimg2(t_vars *var)
 
 void	rightimg3(t_vars *var)
 {
+
+	var->w_h.game[var->i][var->j] = '0';
+	var->w_h.game[var->i][var->j + 1] = 'P';
 	mlx_put_image_to_window(var->mlx, var->win, \
 	var->img.bg, var->j * 64, var->i * 64);
 	mlx_put_image_to_window(var->mlx, var->win, \
