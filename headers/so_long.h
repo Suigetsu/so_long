@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 10:52:23 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/03 16:38:10 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/04 16:06:05 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -240,8 +240,11 @@ void	down_evolution(int count, t_vars *var);
 void	up_evolution(int count, t_vars *var);
 void	right_evolution(int count, t_vars *var);
 void	left_evolution(int count, t_vars *var);
-void	exit_move(t_vars *var);
+void	exit_xy(t_vars *var);
 int		collectibles(char *filename);
+int		exit_i(t_vars *var);
+int		exit_j(t_vars *var);
+int		coll_scan(t_vars *var);
 
 
 #endif

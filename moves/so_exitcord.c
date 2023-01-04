@@ -1,42 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_keys.c                                          :+:      :+:    :+:   */
+/*   so_exitcord.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/01 18:57:01 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/04 16:26:48 by mlagrini         ###   ########.fr       */
+/*   Created: 2023/01/04 11:47:02 by mlagrini          #+#    #+#             */
+/*   Updated: 2023/01/04 14:58:04 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-int	window_destroyer(int key, t_vars *var)
+int	exit_i(t_vars *var)
 {
-	if (key == 53)
+	var->i = 1;
+	while (var->i < var->w_h.height - 1)
 	{
-		mlx_destroy_window(var->mlx, var->win);
-		exit(1);
+		var->j = 1;
+		while (var->j < var->w_h.width - 1)
+		{
+			if (var->w_h.game[var->i][var->j] == 'E')
+				return (var->i);
+			var->j++;
+		}
+		var->i++;
 	}
 	return (0);
 }
 
-int	keys(int key, t_vars *var)
+int	exit_j(t_vars *var)
 {
-	int	i;
-
-	if (key == 2)
-		i = right_move(key, var);
-	else if (key == 13)
-		i = up_move(key, var);
-	else if (key == 1)
-		i = down_move(key, var);
-	else if (key == 0)
-		i = left_move(key, var);
-	else if (key == 53)
-		i = window_destroyer(key, var);
-	if (coll_scan(var) == 1)
-		exit_game(var);
+	var->i = 1;
+	while (var->i < var->w_h.height - 1)
+	{
+		var->j = 1;
+		while (var->j < var->w_h.width - 1)
+		{
+			if (var->w_h.game[var->i][var->j] == 'E')
+				return (var->j);
+			var->j++;
+		}
+		var->i++;
+	}
 	return (0);
 }
