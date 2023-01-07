@@ -6,13 +6,13 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:42:54 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/02 09:43:33 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/07 19:14:00 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/so_long.h"
+#include "../headers/so_long.h"
 
-int	collectibles(char *s)
+int	collectibles_nbr(char *s)
 {
 	t_mapchar	c;
 	int			index;
