@@ -6,13 +6,11 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 11:30:34 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/04 15:25:52 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/09 20:21:26 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
-
-static int	g_movecount;
 
 void	rightimg1(t_vars *var)
 {

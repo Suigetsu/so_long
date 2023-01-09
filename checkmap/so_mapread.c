@@ -6,18 +6,18 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 10:13:51 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/02 22:27:09 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/09 17:21:00 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-void	map_read(t_vars *var)
+void	map_read(char *filename, t_vars *var)
 {
 	int		fd;
 	char	*s;
 
-	fd = open("main/map.ber", O_RDONLY);
+	fd = open(filename, O_RDONLY);
 	s = get_next_line(fd);
 	var->w_h.width = ft_strlen(s) - 1;
 	var->w_h.height = 1;

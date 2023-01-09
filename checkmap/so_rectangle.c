@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:29:26 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/02 09:44:28 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/09 20:13:02 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	calculatrice(char *s)
 {
 	int	i;
 
+	i = 0;
 	while (s[i] && s[i] != '\n')
 		i++;
 	return (i);

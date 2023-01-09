@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 10:52:23 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/06 11:21:38 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/09 18:50:44 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -198,12 +198,16 @@ typedef struct s_vars
 	t_playerthree	p3;
 }				t_vars;
 
+int		starting_pt(char *s);
+int		strangechars(char *s);
+int		exits(char *s);
+int		collectibles_nbr(char *s);
 int		calculatrice(char *s);
 int		wall_of_maria(char *filename);
 int		mapchars(char *filename);
 int		maprectangle(char *filename);
 int		mapname(char *filename);
-// void	validmap(char *filename);
+void	validmap(char *filename);
 int		window_destroyer(int key, t_vars *vars);
 int		right_move(int key, t_vars *var);
 void	upper_wall(t_vars *var);
@@ -214,7 +218,7 @@ void	coll(t_vars *var);
 void	obs(t_vars *var);
 void	player(t_vars *var);
 void	exit_game(t_vars *var);
-void	map_read(t_vars *var);
+void	map_read(char *filename, t_vars *var);
 int	    player_up(int key, t_vars *var);
 int     up_move(int key, t_vars *var);
 int     keys(int key, t_vars *var);
