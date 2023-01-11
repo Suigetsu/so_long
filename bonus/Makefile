@@ -6,7 +6,7 @@
 #    By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 18:08:25 by mlagrini          #+#    #+#              #
-#    Updated: 2023/01/10 11:08:04 by mlagrini         ###   ########.fr        #
+#    Updated: 2023/01/11 21:38:16 by mlagrini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,12 @@ SRCS	=	checkmap/so_mapread.c \
 			42_ft_printf/ft_putstr.c \
 			42_ft_printf/ft_putunsigned.c \
 			42_ft_printf/ft_putuphex.c \
+			moves/so_james.c \
+			moves/so_jessie.c \
+			moves/so_giovanni.c \
+			moves/so_meowth.c \
+			moves/so_enemyimg.c \
+			components/so_enemy.c \
 			main/main.c
 OBJS	= ${SRCS:.c=.o}
 CC		= cc

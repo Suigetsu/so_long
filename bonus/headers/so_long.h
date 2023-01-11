@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 10:52:23 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/10 12:59:25 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/11 20:29:29 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@
 # include "ft_printf.h"
 # include "get_next_line.h"
 # include <fcntl.h>
+# include <time.h>
 # include "mlx.h"
+# define	enemy 30 
 
 typedef struct s_errors
 {
@@ -306,5 +308,25 @@ int		right_exit(int key, t_vars *var);
 int		left_exit(int key, t_vars *var);
 int		up_exit(int key, t_vars *var);
 int		down_exit(int key, t_vars *var);
+// void	james_rmoves(t_vars *var);
+// void	james_downmoves(t_vars *var);
+// void	james_upmoves(t_vars *var);
+// void	james_lmoves(t_vars *var);
+int		james_moves(t_vars *var);
+void	enemyone(t_vars *var);
+void	enemytwo(t_vars *var);
+void	enemythree(t_vars *var);
+void	show_james(t_vars *var);
+void	show_jessie(t_vars *var);
+void	show_giovanni(t_vars *var);
+void	show_meowth(t_vars *var);
+void	meowth(t_vars *var);
+int		jessie_moves(t_vars *var);
+int		giovanni_moves(t_vars *var);
+int		meowth_moves(t_vars *var);
+int		enemies_hook(t_vars *var);
+
+
+
 
 #endif

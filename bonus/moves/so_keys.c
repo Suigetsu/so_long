@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 18:57:01 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/06 11:26:32 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/11 20:31:05 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,15 @@ int	exit_win(int key, t_vars *var)
 		else if (key == 53)
 			i = window_destroyer(key, var);
 	}
+	return (0);
+}
+
+int	enemies_hook(t_vars *var)
+{
+
+	james_moves(var);
+	jessie_moves(var);
+	giovanni_moves(var);
+	meowth_moves(var);
 	return (0);
 }
