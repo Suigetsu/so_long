@@ -6,14 +6,13 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 03:04:08 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/09 20:17:47 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/12 19:57:15 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
 static int	g_count;
-// static int	g_c;
 static int	g_exit_x;
 static int	g_exit_y;
 static int	g_movecount;

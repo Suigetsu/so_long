@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_walls.c                                         :+:      :+:    :+:   */
+/*   so_wallcheck.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:30:47 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/02 09:31:56 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/13 19:06:26 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,18 @@ int	lowerwall(char	*filename)
 	s = get_next_line(fd);
 	while (s)
 	{
+		free (s);
 		s = get_next_line(fd);
 		c += 1;
 	}
+	free (s);
 	close (fd);
 	fd = open(filename, O_RDONLY);
 	while (len < c)
 	{
 		s = get_next_line(fd);
 		len++;
+		free (s);
 	}
 	c = upperwall(s);
 	if (c <= 0)
@@ -72,10 +75,15 @@ int	wall_of_maria(char *filename)
 	while (s)
 	{
 		if (s[0] != '1' || s[len - 2] != '1')
+		{
+			free (s);
 			return (0);
+		}
+		free (s);
 		s = get_next_line(fd);
 		c += 1;
 	}
+	free (s);
 	close (fd);
 	c = lowerwall(filename);
 	if (c <= 0)

@@ -6,7 +6,7 @@
 #    By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 18:08:25 by mlagrini          #+#    #+#              #
-#    Updated: 2023/01/10 11:08:04 by mlagrini         ###   ########.fr        #
+#    Updated: 2023/01/13 17:17:38 by mlagrini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,12 +59,13 @@ NAME	= Pokemon
 # 		${CC} -o game %.o 
 
 %.o:%.c
-		${CC} ${CFLAGS} -c $< -o $@
+		@${CC} ${CFLAGS} -c $< -o $@
 
 all:	${NAME}
 
 $(NAME): ${OBJS}
-		$(CC) $(OBJS) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+		@$(CC) $(OBJS) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+		# $(CC) $(OBJS) -lmlx -lXext -lX11 -o $(NAME)
 		clear
 
 clean:

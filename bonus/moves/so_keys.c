@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 18:57:01 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/11 20:31:05 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/12 00:41:04 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,4 +95,21 @@ int	enemies_hook(t_vars *var)
 	giovanni_moves(var);
 	meowth_moves(var);
 	return (0);
+}
+
+void	getting_caught(t_vars *var)
+{
+	var->i = 1;
+	while (var->i < var->w_h.height - 1)
+	{
+		var->j = 1;
+		while (var->j < var->w_h.width - 1)
+		{
+			if (var->w_h.game[var->i][var->j] == 'P' \
+				&& var->w_h.game[var->i][var->j + 1] == 'A')
+				exit(1);
+			var->j++;
+		}
+		var->i++;
+	}
 }
