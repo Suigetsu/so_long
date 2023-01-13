@@ -6,72 +6,88 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:24:04 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/08 15:11:22 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/13 19:27:49 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+typedef struct s_splitvar
+{
+	int		i;
+	int		j;
+	int		k;
+	int		len;
+	int		count;
+	char	**strings;
+	char	*ptr;
+}				t_splitvar;
+
 static int	wordcount(char *s, char c)
 {
 	int	i;
 	int	count;
-	int	len;
 
 	i = 0;
 	count = 1;
-	len = ft_strlen(s);
 	while (s[i] != '\0')
 	{
 		while (s[i] == c)
-		{
 			i++;
-		}
-		while (s[i] != c && i < len)
+		while (s[i] != c && s[i] != '\0')
 		{
 			i++;
 			if (s[i] == c)
-				count++;
+				count += 1;
 		}
 	}
 	return (count);
 }
 
-static void	my_allocator(char **dst, char *s)
+static int	wordlen(char *s, char c)
 {
-	int	i;
-	int	len;
+	static int	o;
+	int			len;
 
-	i = 0;
-	len = ft_strlen(s);
-	dst[i] = malloc ((len + 1) * sizeof(char));
-	ft_memcpy(dst[i], s, (ft_strlen(s) + 1));
+	len = 1;
+	while (s[o] != '\0')
+	{
+		while (s[o] == c)
+			o++;
+		while (s[o] != c && s[o] != '\0')
+		{
+			o++;
+			len++;
+			if (s[o] == c)
+				return (len);
+		}
+	}
+	return (len);
 }
 
 char	**ft_split(char *s, char c)
 {
-	int		i;
-	int		j;
-	int		k;
-	char	**strings;
-	char	*ptr;
+	t_splitvar	var;
 
-	i = 0;
-	k = 0;
-	strings = ft_calloc((wordcount((char *)s, c) + 1), sizeof(char *));
-	if (strings == NULL)
+	var.i = 0;
+	var.k = 0;
+	var.strings = ft_calloc ((wordcount((char *)s, c) + 1), sizeof(char *));
+	if (var.strings == NULL)
 		return (NULL);
-	while (s[i] != '\0')
+	while (s[var.i] != '\0')
 	{
-		ptr = ft_calloc((ft_strlen(s) + 1), sizeof(char));
-		j = 0;
-		if (s[i] == c)
-			i++;
-		while (s[i] != c && (size_t)i < ft_strlen(s))
-			ptr[j++] = ((char *)s)[i++];
-		if (j > 0)
-			my_allocator(&strings[k++], ptr);
+		while (s[var.i] == c)
+			var.i++;
+		if (s[var.i] == '\0')
+			break ;
+		var.len = wordlen((char *)s, c);
+		var.strings[var.k] = ft_calloc (((var.len) + 1), sizeof(char));
+		if (var.strings[var.k] == NULL)
+			return (NULL);
+		var.j = 0;
+		while (s[var.i] != c && s[var.i] != '\0')
+			var.strings[var.k][var.j++] = s[var.i++];
+		var.k++;
 	}
-	free (ptr);
-	return (strings);
+	return (var.strings);
 }

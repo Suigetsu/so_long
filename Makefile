@@ -6,7 +6,7 @@
 #    By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 18:08:25 by mlagrini          #+#    #+#              #
-#    Updated: 2023/01/13 17:17:38 by mlagrini         ###   ########.fr        #
+#    Updated: 2023/01/13 19:23:50 by mlagrini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,10 +69,10 @@ $(NAME): ${OBJS}
 		clear
 
 clean:
-		${RM} ${OBJS}
+		@${RM} ${OBJS}
 
 fclean:	clean
-		${RM} ${NAME}
+		@${RM} ${NAME}
 		clear
 
 re:		fclean all
