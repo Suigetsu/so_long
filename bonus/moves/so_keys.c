@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 18:57:01 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/12 00:41:04 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/14 17:11:30 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,45 @@ int	keys(int key, t_vars *var)
 	int	i;
 
 	if (coll_scan(var) == 1)
+		exit_win(key, var);
+	if (key == 2)
 	{
-		
+		james_exit(var);
+		jessie_exit(var);
+		giovanni_exit(var);
+		i = right_move(key, var);
+	}
+	else if (key == 13)
+	{
+		james_exit(var);
+		jessie_exit(var);
+		giovanni_exit(var);
+		i = up_move(key, var);
+	}
+	else if (key == 1)
+	{
+		james_exit(var);
+		jessie_exit(var);
+		giovanni_exit(var);
+		i = down_move(key, var);
+	}
+	else if (key == 0)
+	{
+		james_exit(var);
+		jessie_exit(var);
+		giovanni_exit(var);
+		i = left_move(key, var);
+	}
+	else if (key == 53)
+		i = window_destroyer(key, var);
+	return (0);
+}
+
+void	exit_win(int key, t_vars *var)
+{
+	int	i;
+
+	exit_game(var);
 		if (key == 2)
 			i = right_exit(key, var);
 		else if (key == 13)
@@ -39,52 +76,6 @@ int	keys(int key, t_vars *var)
 			i = left_exit(key, var);
 		else if (key == 53)
 			i = window_destroyer(key, var);
-	}
-	if (key == 2)
-		i = right_move(key, var);
-	else if (key == 13)
-		i = up_move(key, var);
-	else if (key == 1)
-		i = down_move(key, var);
-	else if (key == 0)
-		i = left_move(key, var);
-	else if (key == 53)
-		i = window_destroyer(key, var);
-	if (coll_scan(var) == 1)
-		exit_game(var);
-	return (0);
-}
-
-int	exit_win(int key, t_vars *var)
-{
-	int	i;
-
-	if (coll_scan(var) == 1)
-	{
-		if (var->w_h.game[var->i][var->j + 1] == 'E' && key == 2)
-		{
-			i = right_move(key, var);
-			exit(1);
-		}
-		else if (var->w_h.game[var->i - 1][var->j] == 'E' && key == 13)
-		{
-			i = up_move(key, var);
-			exit(1);
-		}
-		else if (var->w_h.game[var->i + 1][var->j] == 'E' && key == 1)
-		{
-			i = down_move(key, var);
-			exit(1);
-		}
-		else if (var->w_h.game[var->i][var->j - 1] == 'E' && key == 0)
-		{
-			i = left_move(key, var);
-			exit(1);
-		}
-		else if (key == 53)
-			i = window_destroyer(key, var);
-	}
-	return (0);
 }
 
 int	enemies_hook(t_vars *var)
@@ -95,21 +86,4 @@ int	enemies_hook(t_vars *var)
 	giovanni_moves(var);
 	meowth_moves(var);
 	return (0);
-}
-
-void	getting_caught(t_vars *var)
-{
-	var->i = 1;
-	while (var->i < var->w_h.height - 1)
-	{
-		var->j = 1;
-		while (var->j < var->w_h.width - 1)
-		{
-			if (var->w_h.game[var->i][var->j] == 'P' \
-				&& var->w_h.game[var->i][var->j + 1] == 'A')
-				exit(1);
-			var->j++;
-		}
-		var->i++;
-	}
 }

@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:55:55 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/12 00:41:38 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/14 15:50:40 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,8 @@ int	main(int ac, char **av)
 	show_jessie(&var);
 	show_giovanni(&var);
 	show_meowth(&var);
-	// exit_game(&var);
 	exit_xy(&var);
 	mlx_hook(var.win, 2, 0, keys, &var);
 	mlx_loop_hook(var.mlx, enemies_hook, &var);
-	getting_caught(&var);
 	mlx_loop(var.mlx);
 }

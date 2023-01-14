@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 14:41:19 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/10 18:08:36 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/12 16:45:21 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,15 +88,12 @@ void	show_player(t_vars *var)
 			}
 			var->j++;
 		}
-		var->i++;
+	var->i++;
 	}
 }
 
 int	coll_scan(t_vars *var)
 {
-	int c;
-
-	c = 0;
 	var->i = 1;
 	while (var->w_h.game[var->i])
 	{

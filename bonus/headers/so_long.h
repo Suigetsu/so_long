@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 10:52:23 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/12 00:41:16 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/14 17:05:10 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -303,7 +303,7 @@ int		collectibles(char *filename);
 int		exit_i(t_vars *var);
 int		exit_j(t_vars *var);
 int		coll_scan(t_vars *var);
-int		exit_win(int key, t_vars *var);
+void	exit_win(int key, t_vars *var);
 int		right_exit(int key, t_vars *var);
 int		left_exit(int key, t_vars *var);
 int		up_exit(int key, t_vars *var);
@@ -325,7 +325,9 @@ int		jessie_moves(t_vars *var);
 int		giovanni_moves(t_vars *var);
 int		meowth_moves(t_vars *var);
 int		enemies_hook(t_vars *var);
-void	getting_caught(t_vars *var);
+void	james_exit(t_vars *var);
+void	jessie_exit(t_vars *var);
+void	giovanni_exit(t_vars *var);
 
 
 
