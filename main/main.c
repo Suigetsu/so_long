@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:55:55 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/13 16:38:57 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/13 20:05:50 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,7 @@ int	main(int ac, char **av)
 		free (var.win);
 		return (1);
 	}
-	upper_img(&var);
-	upper_wall(&var);
-    left_wall(&var);
-    lower_wall(&var);
-    right_wall(&var);
-    obs(&var);
-    coll(&var);
-	playerone(&var);
-	playertwo(&var);
-	playerthree(&var);
-    show_player(&var);
-	// exit_game(&var);
+	printmap(&var);
 	exit_xy(&var);
 	mlx_hook(var.win, 2, 0, keys, &var);
 	mlx_loop(var.mlx);

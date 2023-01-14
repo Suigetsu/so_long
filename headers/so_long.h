@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 10:52:23 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/09 18:50:44 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/13 20:04:33 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -254,5 +254,7 @@ int		right_exit(int key, t_vars *var);
 int		left_exit(int key, t_vars *var);
 int		up_exit(int key, t_vars *var);
 int		down_exit(int key, t_vars *var);
+void	printmap(t_vars *var);
+
 
 #endif

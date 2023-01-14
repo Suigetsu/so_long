@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   so_printmap.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlagrini <mlagrini@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/02 19:40:46 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/02 19:49:17 by mlagrini         ###   ########.fr       */
+/*   Created: 2023/01/13 20:02:40 by mlagrini          #+#    #+#             */
+/*   Updated: 2023/01/13 20:04:04 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-int	main(void)
+void	printmap(t_vars *var)
 {
-	t_vars	var;
-
-	var.mlx = mlx_init();
-	var.win = mlx_new_window(var.mlx, 64, 64, "pokegame");
-	//map_read(&var);
-	mlx_loop(var.mlx);
+	upper_img(var);
+	upper_wall(var);
+    left_wall(var);
+    lower_wall(var);
+    right_wall(var);
+    obs(var);
+    coll(var);
+	playerone(var);
+	playertwo(var);
+	playerthree(var);
+    show_player(var);
 }

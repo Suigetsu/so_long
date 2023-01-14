@@ -6,7 +6,7 @@
 #    By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 18:08:25 by mlagrini          #+#    #+#              #
-#    Updated: 2023/01/13 19:23:50 by mlagrini         ###   ########.fr        #
+#    Updated: 2023/01/14 13:02:54 by mlagrini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,6 @@ SRCS	=	checkmap/so_mapread.c \
 			components/so_others.c \
 			components/so_walls.c \
 			utils/get_next_line.c \
-			utils/get_next_line_utils.c \
 			42_libft/ft_strjoin.c \
 			42_libft/ft_strlen.c \
 			42_libft/ft_split.c \
@@ -46,6 +45,7 @@ SRCS	=	checkmap/so_mapread.c \
 			42_ft_printf/ft_putstr.c \
 			42_ft_printf/ft_putunsigned.c \
 			42_ft_printf/ft_putuphex.c \
+			main/so_printmap.c \
 			main/main.c
 OBJS	= ${SRCS:.c=.o}
 CC		= cc
