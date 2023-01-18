@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 10:52:23 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/14 17:05:10 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/17 15:04:39 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,14 @@
 # include <time.h>
 # include "mlx.h"
 # define	enemy 30 
+
+typedef struct s_animeowth
+{
+	char	*path1;
+	char	*path2;
+	void	*f1;
+	void	*f2;
+}				t_animeowth;
 
 typedef struct s_errors
 {
@@ -84,6 +92,10 @@ typedef struct s_meowth
 	char	*downpath;
 	char	*rightpath;
 	char	*leftpath;
+	char	*path1;
+	char	*path2;
+	void	*f1;
+	void	*f2;
 }				t_meowth;
 
 typedef struct s_playerone
@@ -162,45 +174,6 @@ typedef struct s_img
 	void	*obs;
 }				t_img;
 
-typedef struct s_playermove1
-{
-	void	*p_one_img1;
-	void	*p_one_img2;
-	void	*p_one_img3;
-	void	*p_one_img4;
-	char	*p_one_path1;
-	char	*p_one_path2;
-	char	*p_one_path3;
-	char	*p_one_path4;
-	
-}				t_playermove1;
-
-typedef struct s_playermove2
-{
-	void	*p_two_img1;
-	void	*p_two_img2;
-	void	*p_two_img3;
-	void	*p_two_img4;
-	char	*p_two_path1;
-	char	*p_two_path2;
-	char	*p_two_path3;
-	char	*p_two_path4;
-	
-}				t_playermove2;
-
-typedef struct s_playermove3
-{
-	void	*p_three_img1;
-	void	*p_three_img2;
-	void	*p_three_img3;
-	void	*p_three_img4;
-	char	*p_three_path1;
-	char	*p_three_path2;
-	char	*p_three_path3;
-	char	*p_three_path4;
-	
-}				t_playermove3;
-
 typedef struct s_mapwh
 {
 	int		width;
@@ -237,12 +210,10 @@ typedef struct s_vars
     int             count;
     int             ev1;
     int             ev2;
+	char			*counter;
 	t_path			path;
 	t_mapwh			w_h;
 	t_img			img;
-	t_playermove1	p_one;
-	t_playermove2	p_two;
-	t_playermove3	p_three;
 	t_playerone		p1;
 	t_playertwo		p2;
 	t_playerthree	p3;
@@ -308,10 +279,6 @@ int		right_exit(int key, t_vars *var);
 int		left_exit(int key, t_vars *var);
 int		up_exit(int key, t_vars *var);
 int		down_exit(int key, t_vars *var);
-// void	james_rmoves(t_vars *var);
-// void	james_downmoves(t_vars *var);
-// void	james_upmoves(t_vars *var);
-// void	james_lmoves(t_vars *var);
 int		james_moves(t_vars *var);
 void	enemyone(t_vars *var);
 void	enemytwo(t_vars *var);
@@ -328,7 +295,10 @@ int		enemies_hook(t_vars *var);
 void	james_exit(t_vars *var);
 void	jessie_exit(t_vars *var);
 void	giovanni_exit(t_vars *var);
-
+void	meowth_exit(t_vars *var);
+void	move_counter(int movecount, t_vars *var);
+void	meowth_img(t_vars *var);
+int		meowth_animated(t_vars *var);
 
 
 

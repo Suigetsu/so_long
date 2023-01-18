@@ -6,7 +6,7 @@
 #    By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 18:08:25 by mlagrini          #+#    #+#              #
-#    Updated: 2023/01/14 13:02:54 by mlagrini         ###   ########.fr        #
+#    Updated: 2023/01/16 13:13:26 by mlagrini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,6 @@ SRCS	=	checkmap/so_mapread.c \
 			checkmap/so_rectangle.c \
 			checkmap/so_maputils.c \
 			checkmap/so_mapname.c \
-			checkmap/so_chars.c \
 			checkmap/so_invalidmsg.c \
 			moves/so_exitmove.c \
 			moves/so_movement.c \

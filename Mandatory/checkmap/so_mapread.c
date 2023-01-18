@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 10:13:51 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/13 19:03:21 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/18 17:19:21 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ void	map_read(char *filename, t_vars *var)
 		var->w_h.height += 1;
 	}
 	var->w_h.game = ft_split(var->w_h.map, '\n');
+	var->mapcopy = ft_split(var->w_h.map, '\n');
 	free (var->w_h.map);
 }

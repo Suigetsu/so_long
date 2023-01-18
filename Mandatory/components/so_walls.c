@@ -6,13 +6,13 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 14:29:11 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/02 20:15:55 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/16 13:12:10 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-void	upper_img(t_vars *var)
+static void	upper_img(t_vars *var)
 {
 	var->path.path_uwall = "sprites/xpm/world/upper_wall.xpm";
 	var->path.path_ulwall = "sprites/xpm/world/first_wall.xpm";

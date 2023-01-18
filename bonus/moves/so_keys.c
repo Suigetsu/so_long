@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 18:57:01 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/14 17:11:30 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/17 15:03:02 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	keys(int key, t_vars *var)
 		james_exit(var);
 		jessie_exit(var);
 		giovanni_exit(var);
+		meowth_exit(var);
 		i = right_move(key, var);
 	}
 	else if (key == 13)
@@ -40,6 +41,7 @@ int	keys(int key, t_vars *var)
 		james_exit(var);
 		jessie_exit(var);
 		giovanni_exit(var);
+		meowth_exit(var);
 		i = up_move(key, var);
 	}
 	else if (key == 1)
@@ -47,6 +49,7 @@ int	keys(int key, t_vars *var)
 		james_exit(var);
 		jessie_exit(var);
 		giovanni_exit(var);
+		meowth_exit(var);
 		i = down_move(key, var);
 	}
 	else if (key == 0)
@@ -54,6 +57,7 @@ int	keys(int key, t_vars *var)
 		james_exit(var);
 		jessie_exit(var);
 		giovanni_exit(var);
+		meowth_exit(var);
 		i = left_move(key, var);
 	}
 	else if (key == 53)
@@ -80,10 +84,28 @@ void	exit_win(int key, t_vars *var)
 
 int	enemies_hook(t_vars *var)
 {
-
+	meowth_animated(var);
 	james_moves(var);
 	jessie_moves(var);
 	giovanni_moves(var);
 	meowth_moves(var);
 	return (0);
+}
+
+void	move_counter(int movecount, t_vars *var)
+{
+	var->counter = ft_itoa(movecount);
+	mlx_put_image_to_window(var->mlx, var->win, \
+				var->img.lowall, 64, (var->w_h.height * 64) - 64);
+	mlx_put_image_to_window(var->mlx, var->win, \
+				var->img.lowall, 64 * 2, (var->w_h.height * 64) - 64);
+	mlx_put_image_to_window(var->mlx, var->win, \
+				var->img.lowall, 64 * 3, (var->w_h.height * 64) - 64);
+	mlx_put_image_to_window(var->mlx, var->win, \
+				var->img.lowall, 64 * 4, (var->w_h.height * 64) - 64);
+	mlx_string_put(var->mlx, var->win, 64, \
+				(var->w_h.height * 64) - 35, 0x000000, "Movemenet count: ");
+	mlx_string_put(var->mlx, var->win, 64 * 4, \
+				(var->w_h.height * 64) - 35, 0x000000, var->counter);
+	free (var->counter);
 }

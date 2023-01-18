@@ -6,13 +6,13 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:29:26 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/13 19:01:52 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/16 13:09:25 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-int	calculatrice(char *s)
+static int	calculatrice(char *s)
 {
 	int	i;
 

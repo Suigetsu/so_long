@@ -6,15 +6,14 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 10:34:45 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/09 20:16:52 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/16 13:24:19 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-int	right_exit(int key, t_vars *var)
+int	right_exit(t_vars *var)
 {
-	(void)key;
 	var->i = 1;
 	while (var->i < var->w_h.height - 1)
 	{
@@ -38,9 +37,8 @@ int	right_exit(int key, t_vars *var)
 	return (0);
 }
 
-int	left_exit(int key, t_vars *var)
+int	left_exit(t_vars *var)
 {
-	(void)key;
 	var->i = 1;
 	while (var->i < var->w_h.height - 1)
 	{
@@ -64,9 +62,8 @@ int	left_exit(int key, t_vars *var)
 	return (0);
 }
 
-int	up_exit(int key, t_vars *var)
+int	up_exit(t_vars *var)
 {
-	(void)key;
 	var->i = 1;
 	while (var->i < var->w_h.height - 1)
 	{
@@ -90,9 +87,8 @@ int	up_exit(int key, t_vars *var)
 	return (0);
 }
 
-int	down_exit(int key, t_vars *var)
+int	down_exit(t_vars *var)
 {
-	(void)key;
 	var->i = 1;
 	while (var->i < var->w_h.height - 1)
 	{

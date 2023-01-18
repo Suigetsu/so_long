@@ -6,13 +6,13 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 11:41:18 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/04 14:58:00 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/16 13:15:05 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-void	downimg1(t_vars *var)
+static void	downimg1(t_vars *var)
 {
 	mlx_put_image_to_window(var->mlx, var->win, \
 	var->img.bg, var->j * 64, var->i * 64);
@@ -20,7 +20,7 @@ void	downimg1(t_vars *var)
 	var->p1.onedown1, var->j * 64, (var->i + 1) * 64);
 }
 
-void	downimg2(t_vars *var)
+static void	downimg2(t_vars *var)
 {
 	mlx_put_image_to_window(var->mlx, var->win, \
 	var->img.bg, var->j * 64, var->i * 64);
@@ -28,7 +28,7 @@ void	downimg2(t_vars *var)
 	var->p2.twodown1, var->j * 64, (var->i + 1) * 64);
 }
 
-void	downimg3(t_vars *var)
+static void	downimg3(t_vars *var)
 {
 	mlx_put_image_to_window(var->mlx, var->win, \
 	var->img.bg, var->j * 64, var->i * 64);

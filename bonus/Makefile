@@ -6,7 +6,7 @@
 #    By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 18:08:25 by mlagrini          #+#    #+#              #
-#    Updated: 2023/01/14 17:08:06 by mlagrini         ###   ########.fr        #
+#    Updated: 2023/01/16 12:28:46 by mlagrini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRCS	=	checkmap/so_mapread.c \
 			42_libft/ft_bzero.c \
 			42_libft/ft_memcpy.c \
 			42_libft/ft_strdup.c \
+			42_libft/ft_itoa.c \
 			42_ft_printf/ft_printf.c \
 			42_ft_printf/ft_putadrs.c \
 			42_ft_printf/ft_putchar.c \
@@ -53,6 +54,8 @@ SRCS	=	checkmap/so_mapread.c \
 			moves/so_exitjames.c \
 			moves/so_exitjessie.c \
 			moves/so_exitgiovanni.c \
+			moves/so_exitmeowth.c \
+			moves/so_animeowth.c \
 			components/so_enemy.c \
 			main/main.c
 OBJS	= ${SRCS:.c=.o}

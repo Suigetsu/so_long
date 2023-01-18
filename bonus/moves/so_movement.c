@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 03:04:08 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/14 15:53:22 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/15 15:15:24 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	right_move(int key, t_vars *var)
 				var->w_h.game[var->i][var->j + 1] = 'P';
 				right_evolution(g_count, var);
 				g_movecount += 1;
-				ft_printf("movement count: %d\n", g_movecount);
+				move_counter(g_movecount, var);
 				return (0);
 			}
 			var->j++;
@@ -65,7 +65,7 @@ int	left_move(int key, t_vars *var)
 				var->w_h.game[var->i][var->j - 1] = 'P';
 				left_evolution(g_count, var);
 				g_movecount += 1;
-				ft_printf("movement count: %d\n", g_movecount);
+				move_counter(g_movecount, var);
 				return (0);
 			}
 			var->j++;
@@ -94,7 +94,7 @@ int	up_move(int key, t_vars *var)
 				var->w_h.game[var->i - 1][var->j] = 'P';
 				up_evolution(g_count, var);
 				g_movecount += 1;
-				ft_printf("movement count: %d\n", g_movecount);
+				move_counter(g_movecount, var);
 				return (0);
 			}
 			var->j++;
@@ -123,7 +123,7 @@ int	down_move(int key, t_vars *var)
 				var->w_h.game[var->i + 1][var->j] = 'P';
 				down_evolution(g_count, var);
 				g_movecount += 1;
-				ft_printf("movement count: %d\n", g_movecount);
+				move_counter(g_movecount, var);
 				return (0);
 			}
 			var->j++;

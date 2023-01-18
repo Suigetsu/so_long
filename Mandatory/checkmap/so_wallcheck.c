@@ -6,13 +6,13 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:30:47 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/13 19:06:26 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/16 13:09:47 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-int	upperwall(char *s)
+static int	upperwall(char *s)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ int	upperwall(char *s)
 	return (1);
 }
 
-int	lowerwall(char	*filename)
+static int	lowerwall(char	*filename)
 {
 	int		fd;
 	int		c;

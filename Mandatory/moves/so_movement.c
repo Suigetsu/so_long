@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 03:04:08 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/12 19:57:15 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/16 13:28:18 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@ static int	g_exit_x;
 static int	g_exit_y;
 static int	g_movecount;
 
-int	right_move(int key, t_vars *var)
+int	right_move(t_vars *var)
 {
-	(void)key;
 	var->i = 1;
 	while (var->i < var->w_h.height - 1)
 	{
@@ -46,9 +45,8 @@ int	right_move(int key, t_vars *var)
 	return (0);
 }
 
-int	left_move(int key, t_vars *var)
+int	left_move(t_vars *var)
 {
-	(void)key;
 	var->i = 1;
 	while (var->i < var->w_h.height - 1)
 	{
@@ -75,9 +73,8 @@ int	left_move(int key, t_vars *var)
 	return (0);
 }
 
-int	up_move(int key, t_vars *var)
+int	up_move(t_vars *var)
 {
-	(void)key;
 	var->i = 0;
 	while (var->i < var->w_h.height - 1)
 	{
@@ -104,9 +101,8 @@ int	up_move(int key, t_vars *var)
 	return (0);
 }
 
-int	down_move(int key, t_vars *var)
+int	down_move(t_vars *var)
 {
-	(void)key;
 	var->i = 1;
 	while (var->i < var->w_h.height)
 	{

@@ -6,13 +6,13 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:42:54 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/07 19:14:00 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/16 13:05:07 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-int	collectibles_nbr(char *s)
+static int	collectibles_nbr(char *s)
 {
 	t_mapchar	c;
 	int			index;
@@ -31,7 +31,7 @@ int	collectibles_nbr(char *s)
 		return (0);
 }
 
-int	exits(char *s)
+static int	exits(char *s)
 {
 	t_mapchar	c;
 	int			index;
@@ -47,7 +47,7 @@ int	exits(char *s)
 	return (c.ext_count);
 }
 
-int	starting_pt(char *s)
+static int	starting_pt(char *s)
 {
 	t_mapchar	c;
 	int			index;
@@ -63,7 +63,7 @@ int	starting_pt(char *s)
 	return (c.strt_count);
 }
 
-int	strangechars(char *s)
+static int	strangechars(char *s)
 {
 	int			index;
 
@@ -76,4 +76,38 @@ int	strangechars(char *s)
 		index++;
 	}
 	return (0);
+}
+
+int	mapchars(char *filename)
+{
+	t_mapchar	test;
+	int			fd;
+	char		*s;
+
+	test.col_count = 0;
+	test.ext_count = 0;
+	test.strt_count = 0;
+	test.schar_count = 0;
+	fd = open(filename, O_RDONLY);
+	s = get_next_line(fd);
+	while (s)
+	{
+		if (ft_strchr(s, '0') == 0 && ft_strchr(s, '1') == 0)
+		{
+			free (s);
+			return (0);
+		}
+		test.col_count += collectibles_nbr(s);
+		test.strt_count += starting_pt(s);
+		test.ext_count += exits(s);
+		test.schar_count += strangechars(s);
+		free (s);
+		s = get_next_line(fd);
+	}
+	free (s);
+	close(fd);
+	if (test.col_count <= 0 || test.ext_count <= 0 || test.ext_count > 1
+		|| test.strt_count <= 0 || test.strt_count > 1 || test.schar_count > 0)
+		return (0);
+	return (1);
 }
