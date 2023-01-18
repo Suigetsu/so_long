@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:48:59 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/18 17:21:59 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/18 17:32:16 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,4 @@ void	pathfinding(int x, int y, t_vars *var)
 	}
 }
 
-static void	char_counter()
+static void	char_counter(t_vars *var)
