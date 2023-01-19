@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:55:55 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/13 20:05:50 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/19 16:53:34 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	main(int ac, char **av)
 {
-	t_vars	var;
+	t_vars			var;
+	t_additionals	mapcpy;
 	
 	(void)ac;
 	var.mlx = mlx_init();
@@ -22,6 +23,9 @@ int	main(int ac, char **av)
 		return (1);
 	validmap(av[1]);
 	map_read(av[1], &var);
+	map_copy(&var, &mapcpy);
+	player_finder(&var, &mapcpy);
+	valid_path(&var, &mapcpy);
 	var.win = mlx_new_window(var.mlx, var.w_h.width * 64, var.w_h.height * 64, "poketest");
 	if (var.win == NULL)
 	{

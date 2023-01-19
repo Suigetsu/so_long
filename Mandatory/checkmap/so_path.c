@@ -6,26 +6,54 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:48:59 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/18 17:32:16 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/19 16:56:58 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-static void	player_coord(t_vars *var)
+static int	pathfinding(int x, int y, t_additionals *mapcpy)
+{
+	if (mapcpy->mapcopy[x][y + 1] != '1' && mapcpy->mapcopy[x][y + 1])
+	{
+		mapcpy->mapcopy[x][y + 1] = '1';
+		pathfinding(x, y + 1, mapcpy);
+	}
+	else if (mapcpy->mapcopy[x][y - 1] != '1' && mapcpy->mapcopy[x][y - 1])
+	{
+		mapcpy->mapcopy[x][y - 1] = '1';
+		pathfinding(x, y - 1, mapcpy);
+	}
+	else if (mapcpy->mapcopy[x - 1][y] != '1' && mapcpy->mapcopy[x - 1][y])
+	{
+		mapcpy->mapcopy[x - 1][y] = '1';
+		pathfinding(x - 1, y, mapcpy);
+	}
+	else if (mapcpy->mapcopy[x + 1][y] != '1' && mapcpy->mapcopy[x + 1][y])
+	{
+		mapcpy->mapcopy[x + 1][y] = '1';
+		pathfinding(x + 1, y, mapcpy);
+	}
+	else
+		return (1);
+	return (0);
+}
+
+void	player_finder(t_vars *var, t_additionals *mapcpy)
 {
 	int	i;
-	int	j;
-	
+	int j;
+
 	i = 0;
 	while (i < var->w_h.height)
 	{
 		j = 0;
 		while (j < var->w_h.width)
 		{
-			if (var->w_h.game[i][j] == 'P')
+			if (mapcpy->mapcopy[i][j] == 'P')
 			{
-				pathfinding(i, j, var);
+				if (pathfinding(i, j, mapcpy) == 1)
+					return ;
 			}
 			j++;
 		}
@@ -33,31 +61,27 @@ static void	player_coord(t_vars *var)
 	}
 }
 
-void	pathfinding(int x, int y, t_vars *var)
+void	valid_path(t_vars *var, t_additionals *mapcpy)
 {
-	var->i = 1;
-	var->j = 1;
-	
-	if (var->mapcopy[x][y + 1] != '1')
-	{
-		var->mapcopy[x][y + 1] = '1';
-		pathfinding(x, y + 1, var);
-	}
-	else if (var->mapcopy[x + 1][y] != '1')
-	{
-		var->mapcopy[x + 1][y] = '1';
-		pathfinding(x + 1, y, var);
-	}
-	else if (var->mapcopy[x][y - 1] != '1')
-	{
-		var->mapcopy[x][y - 1] = '1';
-		pathfinding(x, y - 1, var);
-	}
-	else if (var->mapcopy[x - 1][y] != '1')
-	{
-		var->mapcopy[x - 1][y] = '1';
-		pathfinding(x - 1, y, var);
-	}
-}
+	int				i;
+	int				j;
 
-static void	char_counter(t_vars *var)
+	i = 1;
+	while (i < var->w_h.height)
+	{
+		j = 1;
+		while (j < var->w_h.width)
+		{
+			if (mapcpy->mapcopy[i][j] == 'E'|| mapcpy->mapcopy[i][j] == 'C' \
+				|| mapcpy->mapcopy[i][j] == 'P')
+				{
+					ft_printf("Erorr: valid path doesn't exist.\n");
+					free (mapcpy->mapcopy);
+					exit(1);
+				}
+			j++;
+		}
+		i++;
+	}
+	// free (map->mapcopy);
+}

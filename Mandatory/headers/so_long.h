@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 10:52:23 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/18 17:19:30 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/19 16:37:03 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,12 @@ typedef struct s_path
 	char	*path_p1;
 }				t_path;
 
+typedef struct s_additionals
+{
+	char	**mapcopy;
+}				t_additionals;
+
+
 typedef struct s_vars
 {
 	void			*mlx;
@@ -167,5 +173,8 @@ int		left_exit(t_vars *var);
 int		up_exit(t_vars *var);
 int		down_exit(t_vars *var);
 void	printmap(t_vars *var);
+void	player_finder(t_vars *var, t_additionals *mapcpy);
+void	valid_path(t_vars *var, t_additionals *mapcpy);
+void	map_copy(t_vars *var, t_additionals *mapcpy);
 
 #endif
