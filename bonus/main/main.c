@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:55:55 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/16 16:02:34 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/19 18:28:51 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(int ac, char **av)
 	playerone(&var);
 	playertwo(&var);
 	playerthree(&var);
+	animation_img(&var);
     show_player(&var);
 	show_james(&var);
 	show_jessie(&var);

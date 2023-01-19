@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 10:52:23 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/17 15:04:39 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/19 18:11:43 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,18 @@
 # include <fcntl.h>
 # include <time.h>
 # include "mlx.h"
-# define	enemy 30 
+# define	enemy 30
 
-typedef struct s_animeowth
+typedef struct s_anim
 {
-	char	*path1;
-	char	*path2;
-	void	*f1;
-	void	*f2;
-}				t_animeowth;
+	char	*framepath1;
+	char	*framepath2;
+	char	*framepath3;
+	void	*frame1;
+	void	*frame2;
+	void	*frame3;
+}				t_anim;
+
 
 typedef struct s_errors
 {
@@ -221,6 +224,7 @@ typedef struct s_vars
 	t_enemytwo		e2;
 	t_enemythree	e3;
 	t_meowth		meowth;
+	t_anim			anim;
 }				t_vars;
 
 int		starting_pt(char *s);
@@ -297,9 +301,7 @@ void	jessie_exit(t_vars *var);
 void	giovanni_exit(t_vars *var);
 void	meowth_exit(t_vars *var);
 void	move_counter(int movecount, t_vars *var);
-void	meowth_img(t_vars *var);
-int		meowth_animated(t_vars *var);
-
-
+void	animation_img(t_vars *var);
+int		animation(t_vars *var);
 
 #endif

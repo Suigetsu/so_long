@@ -6,7 +6,7 @@
 #    By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 18:08:25 by mlagrini          #+#    #+#              #
-#    Updated: 2023/01/16 12:28:46 by mlagrini         ###   ########.fr        #
+#    Updated: 2023/01/19 18:12:49 by mlagrini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,8 +55,8 @@ SRCS	=	checkmap/so_mapread.c \
 			moves/so_exitjessie.c \
 			moves/so_exitgiovanni.c \
 			moves/so_exitmeowth.c \
-			moves/so_animeowth.c \
 			components/so_enemy.c \
+			moves/so_animated.c \
 			main/main.c
 OBJS	= ${SRCS:.c=.o}
 CC		= cc

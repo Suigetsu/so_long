@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:48:59 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/19 16:56:58 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/19 17:19:28 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ void	player_finder(t_vars *var, t_additionals *mapcpy)
 
 void	valid_path(t_vars *var, t_additionals *mapcpy)
 {
-	int				i;
-	int				j;
+	int	i;
+	int	j;
 
 	i = 1;
 	while (i < var->w_h.height)
@@ -76,7 +76,9 @@ void	valid_path(t_vars *var, t_additionals *mapcpy)
 				|| mapcpy->mapcopy[i][j] == 'P')
 				{
 					ft_printf("Erorr: valid path doesn't exist.\n");
-					free (mapcpy->mapcopy);
+					i = 0;
+					while (mapcpy->mapcopy[i])
+						free (mapcpy->mapcopy[i++]);
 					exit(1);
 				}
 			j++;

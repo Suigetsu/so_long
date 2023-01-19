@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:55:55 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/19 16:53:34 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/19 17:25:16 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int ac, char **av)
 	if (var.win == NULL)
 	{
 		free (var.win);
-		return (1);
+		return (0);
 	}
 	printmap(&var);
 	exit_xy(&var);

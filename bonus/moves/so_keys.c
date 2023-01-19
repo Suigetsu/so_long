@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 18:57:01 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/17 15:03:02 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/19 18:12:03 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	exit_win(int key, t_vars *var)
 
 int	enemies_hook(t_vars *var)
 {
-	meowth_animated(var);
+	animation(var);
 	james_moves(var);
 	jessie_moves(var);
 	giovanni_moves(var);
