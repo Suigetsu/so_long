@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 14:41:19 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/12 16:45:21 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/20 15:41:44 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	coll(t_vars *var)
 	var->path.path_col = "sprites/xpm/collectibles/smallcandy.xpm";
 	var->img.coll = mlx_xpm_file_to_image(var->mlx, \
 						var->path.path_col, &var->img_x, &var->img_y);
+	if (!var->img.coll)
+		exit (1);
 	while (var->i < var->w_h.height - 1)
 	{
 		var->j = 1;
@@ -38,6 +40,8 @@ void	obs(t_vars *var)
 	var->path.obs = "sprites/xpm/world/lamp2.xpm";
 	var->img.obs = mlx_xpm_file_to_image(var->mlx, \
 					var->path.obs, &var->img_x, &var->img_y);
+	if (!var->img.obs)
+		exit (1);
 	while (var->i < var->w_h.height - 1)
 	{
 		var->j = 1;
@@ -58,6 +62,8 @@ void	exit_game(t_vars *var)
 	var->path.path_exit = "sprites/xpm/world/center1671710820.xpm";
 	var->img.exit = mlx_xpm_file_to_image(var->mlx, \
 						var->path.path_exit, &var->img_x, &var->img_y);
+	if (!var->img.exit)
+		exit (1);
 	while (var->i < var->w_h.height - 1)
 	{
 		var->j = 1;

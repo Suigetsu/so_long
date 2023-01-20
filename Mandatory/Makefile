@@ -6,7 +6,7 @@
 #    By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 18:08:25 by mlagrini          #+#    #+#              #
-#    Updated: 2023/01/18 17:46:48 by mlagrini         ###   ########.fr        #
+#    Updated: 2023/01/20 15:37:41 by mlagrini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ SRCS	=	checkmap/so_mapread.c \
 			42_ft_printf/ft_putstr.c \
 			42_ft_printf/ft_putunsigned.c \
 			42_ft_printf/ft_putuphex.c \
+			components/so_lower_upwall_imgs.c \
 			main/so_printmap.c \
 			main/main.c
 OBJS	= ${SRCS:.c=.o}

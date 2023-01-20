@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 20:02:40 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/16 13:13:06 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/19 22:24:18 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	printmap(t_vars *var)
 {
 	upper_wall(var);
-    left_wall(var);
-    lower_wall(var);
-    right_wall(var);
-    obs(var);
-    coll(var);
+	left_wall(var);
+	lower_wall(var);
+	right_wall(var);
+	obs(var);
+	coll(var);
 	playerone(var);
 	playertwo(var);
 	playerthree(var);
-    show_player(var);
+	show_player(var);
 }

@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 10:13:51 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/19 16:39:44 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/19 22:42:00 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ void	map_copy(t_vars *var, t_additionals *mapcpy)
 	while (var->w_h.game[i])
 	{
 		mapcpy->mapcopy[i] = ft_strdup(var->w_h.game[i]);
-	 	i++;
+		i++;
 	}
 }

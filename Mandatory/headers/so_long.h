@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 10:52:23 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/19 16:37:03 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/20 15:37:02 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,20 @@
 # include "mlx.h"
 # define PIXEL_SIZE 64
 
+typedef struct s_walls
+{
+	int		fd;
+	int		c;
+	int		len;
+	char	*s;
+}				t_walls;
+
 typedef struct s_errors
 {
-    char    *inv_char;
-    char    *rect_map;
-    char    *map_name;
-    char    *map_wall;
+	char	*inv_char;
+	char	*rect_map;
+	char	*map_name;
+	char	*map_wall;
 }				t_errors;
 
 typedef struct s_mapchar
@@ -75,7 +83,7 @@ typedef struct s_playerthree
 
 typedef struct s_img
 {
-    void    *bg;
+	void	*bg;
 	void	*upwall;
 	void	*upl_wall;
 	void	*upr_wall;
@@ -119,18 +127,17 @@ typedef struct s_additionals
 	char	**mapcopy;
 }				t_additionals;
 
-
 typedef struct s_vars
 {
 	void			*mlx;
 	void			*win;
-    int             i;
-    int             j;
+	int				i;
+	int				j;
 	int				img_x;
 	int				img_y;
-    int             count;
-    int             ev1;
-    int             ev2;
+	int				count;
+	int				ev1;
+	int				ev2;
 	char			**mapcopy;
 	t_path			path;
 	t_mapwh			w_h;
@@ -154,10 +161,10 @@ void	coll(t_vars *var);
 void	obs(t_vars *var);
 void	exit_game(t_vars *var);
 void	map_read(char *filename, t_vars *var);
-int     up_move(t_vars *var);
-int     keys(int key, t_vars *var);
-int     down_move(t_vars *var);
-int     left_move(t_vars *var);
+int		up_move(t_vars *var);
+int		keys(int key, t_vars *var);
+int		down_move(t_vars *var);
+int		left_move(t_vars *var);
 void	playerone(t_vars *var);
 void	playertwo(t_vars *var);
 void	playerthree(t_vars *var);
@@ -176,5 +183,8 @@ void	printmap(t_vars *var);
 void	player_finder(t_vars *var, t_additionals *mapcpy);
 void	valid_path(t_vars *var, t_additionals *mapcpy);
 void	map_copy(t_vars *var, t_additionals *mapcpy);
+int		destroy_with_mouse(t_vars *var);
+void	lower_wall_imgs(t_vars *var);
+void	upper_wall_imgs(t_vars *var);
 
 #endif

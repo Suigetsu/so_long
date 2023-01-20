@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:55:55 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/19 18:28:51 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/20 22:46:37 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,24 @@
 int	main(int ac, char **av)
 {
 	t_vars	var;
-	
+
 	(void)ac;
 	var.mlx = mlx_init();
-	// validmap(av[1]);
 	map_read(av[1], &var);
-	var.win = mlx_new_window(var.mlx, var.w_h.width * 64, var.w_h.height * 64, "poketest");
+	var.win = mlx_new_window(var.mlx, var.w_h.width * 64, \
+	var.w_h.height * 64, "poketest");
 	upper_img(&var);
 	upper_wall(&var);
-    left_wall(&var);
-    lower_wall(&var);
-    right_wall(&var);
-    obs(&var);
-    coll(&var);
+	left_wall(&var);
+	lower_wall(&var);
+	right_wall(&var);
+	obs(&var);
+	coll(&var);
 	playerone(&var);
 	playertwo(&var);
 	playerthree(&var);
 	animation_img(&var);
-    show_player(&var);
+	show_player(&var);
 	show_james(&var);
 	show_jessie(&var);
 	show_giovanni(&var);
