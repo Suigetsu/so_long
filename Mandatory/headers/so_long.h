@@ -6,19 +6,23 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 10:52:23 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/20 15:37:02 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/23 22:41:48 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "libft.h"
-# include "ft_printf.h"
-# include "get_next_line.h"
+# include <unistd.h>
+# include <stdarg.h>
+# include <stdlib.h>
 # include <fcntl.h>
+# include <time.h>
 # include "mlx.h"
-# define PIXEL_SIZE 64
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 20
+# endif
 
 typedef struct s_walls
 {
@@ -127,6 +131,68 @@ typedef struct s_additionals
 	char	**mapcopy;
 }				t_additionals;
 
+typedef struct s_anim
+{
+	char	*framepath1;
+	char	*framepath2;
+	char	*framepath3;
+	void	*frame1;
+	void	*frame2;
+	void	*frame3;
+}				t_anim;
+
+typedef struct s_enemyone
+{
+	void	*oneup;
+	void	*oneright;
+	void	*oneleft;
+	void	*onedown;
+	char	*o_uppath;
+	char	*o_downpath;
+	char	*o_rightpath;
+	char	*o_leftpath;
+}				t_enemyone;
+
+typedef struct s_enemytwo
+{
+	void	*twoup;
+	void	*tworight;
+	void	*twoleft;
+	void	*twodown;
+	char	*to_uppath;
+	char	*to_downpath;
+	char	*to_rightpath;
+	char	*to_leftpath;
+}				t_enemytwo;
+
+typedef struct s_enemythree
+{
+	void	*threeup;
+	void	*threeright;
+	void	*threeleft;
+	void	*threedown;
+	char	*th_uppath;
+	char	*th_downpath;
+	char	*th_rightpath;
+	char	*th_leftpath;
+}				t_enemythree;
+
+typedef struct s_meowth
+{
+	void	*up;
+	void	*down;
+	void	*right;
+	void	*left;
+	char	*uppath;
+	char	*downpath;
+	char	*rightpath;
+	char	*leftpath;
+	char	*path1;
+	char	*path2;
+	void	*f1;
+	void	*f2;
+}				t_meowth;
+
 typedef struct s_vars
 {
 	void			*mlx;
@@ -138,15 +204,40 @@ typedef struct s_vars
 	int				count;
 	int				ev1;
 	int				ev2;
-	char			**mapcopy;
+	char			*counter;
 	t_path			path;
 	t_mapwh			w_h;
 	t_img			img;
 	t_playerone		p1;
 	t_playertwo		p2;
 	t_playerthree	p3;
+	t_enemyone		e1;
+	t_enemytwo		e2;
+	t_enemythree	e3;
+	t_meowth		meowth;
+	t_anim			anim;
 }				t_vars;
 
+char	*get_next_line(int fd);
+int		ft_isnewline(char *s);
+size_t	ft_strlen(char *s);
+void	ft_bzero(void *s, size_t n);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
+char	*ft_strchr(const char *s, int c);
+void	*ft_calloc(size_t count, size_t size);
+char	*ft_strdup(char *s1);
+char	*ft_substr(char *s, unsigned int start, size_t len);
+char	*ft_strjoin(char *s1, char *s2);
+char	**ft_split(char *s, char c);
+char	*ft_itoa(int n);
+int		ft_printf(const char *format, ...);
+int		ft_puthex(unsigned int n);
+int		ft_putuphex(unsigned int n);
+int		ft_putchar(char c);
+int		ft_putstr(char *s);
+int		ft_putnbr(int n);
+int		ft_putunsigned(unsigned int n);
+int		ft_putadrs(unsigned long n);
 int		wall_of_maria(char *filename);
 int		mapchars(char *filename);
 int		maprectangle(char *filename);
@@ -186,5 +277,26 @@ void	map_copy(t_vars *var, t_additionals *mapcpy);
 int		destroy_with_mouse(t_vars *var);
 void	lower_wall_imgs(t_vars *var);
 void	upper_wall_imgs(t_vars *var);
+int		animation(t_vars *var);
+void	meowth(t_vars *var);
+int		jessie_moves(t_vars *var);
+int		giovanni_moves(t_vars *var);
+int		meowth_moves(t_vars *var);
+int		enemies_hook(t_vars *var);
+void	james_exit(t_vars *var);
+void	jessie_exit(t_vars *var);
+void	giovanni_exit(t_vars *var);
+void	meowth_exit(t_vars *var);
+void	move_counter(int movecount, t_vars *var);
+void	animation_img(t_vars *var);
+int		james_moves(t_vars *var);
+void	enemyone(t_vars *var);
+void	enemytwo(t_vars *var);
+void	enemythree(t_vars *var);
+void	show_james(t_vars *var);
+void	show_jessie(t_vars *var);
+void	show_giovanni(t_vars *var);
+void	show_meowth(t_vars *var);
+void	free_pokemon(t_vars *var);
 
 #endif

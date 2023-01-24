@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:48:59 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/20 12:40:07 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/24 22:19:16 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,23 +59,29 @@ void	player_finder(t_vars *var, t_additionals *mapcpy)
 
 void	valid_path(t_vars *var, t_additionals *mapcpy)
 {
-	int	i;
-	int	j;
-
-	i = 1;
-	while (i < var->w_h.height)
+	var->i = 0;
+	while (var->i < var->w_h.height)
 	{
-		j = 1;
-		while (j < var->w_h.width)
+		var->j = 0;
+		while (var->j < var->w_h.width)
 		{
-			if (mapcpy->mapcopy[i][j] == 'E' || mapcpy->mapcopy[i][j] == 'C' \
-				|| mapcpy->mapcopy[i][j] == 'P')
+			if (mapcpy->mapcopy[var->i][var->j] == 'E' || \
+				mapcpy->mapcopy[var->i][var->j] == 'C' || \
+				mapcpy->mapcopy[var->i][var->j] == 'P')
 			{
 				ft_printf("Erorr: valid path doesn't exist.\n");
-				exit(1);
+				var->i = 0;
+				while (mapcpy->mapcopy[var->i])
+					free(mapcpy->mapcopy[var->i++]);
+				free(mapcpy->mapcopy);
+				free_pokemon(var);
 			}
-			j++;
+			var->j++;
 		}
-		i++;
+		var->i++;
 	}
+	var->i = 0;
+	while (mapcpy->mapcopy[var->i])
+		free(mapcpy->mapcopy[var->i++]);
+	free(mapcpy->mapcopy);
 }

@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 18:57:01 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/20 13:07:03 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/24 22:39:11 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,14 @@ static int	window_destroyer(int key, t_vars *var)
 	if (key == 53)
 	{
 		mlx_destroy_window(var->mlx, var->win);
-		exit(1);
+		free_pokemon(var);
 	}
 	return (0);
 }
 
 int	destroy_with_mouse(t_vars *var)
 {
-	mlx_destroy_window(var->mlx, var->win);
-	exit(1);
+	free_pokemon(var);
 	return (0);
 }
 

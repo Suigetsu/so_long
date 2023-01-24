@@ -6,76 +6,80 @@
 #    By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 18:08:25 by mlagrini          #+#    #+#              #
-#    Updated: 2023/01/20 15:37:41 by mlagrini         ###   ########.fr        #
+#    Updated: 2023/01/23 13:01:45 by mlagrini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	=	checkmap/so_mapread.c \
-			checkmap/so_wallcheck.c \
-			checkmap/so_rectangle.c \
-			checkmap/so_maputils.c \
-			checkmap/so_mapname.c \
-			checkmap/so_invalidmsg.c \
-			checkmap/so_path.c \
-			moves/so_exitmove.c \
-			moves/so_movement.c \
-			moves/so_upmove.c \
-			moves/so_playerimg.c \
-			moves/so_rmove.c \
-			moves/so_lmove.c \
-			moves/so_keys.c \
-			moves/so_downmove.c \
-			components/so_others.c \
-			components/so_walls.c \
-			utils/get_next_line.c \
-			42_libft/ft_strjoin.c \
-			42_libft/ft_strlen.c \
-			42_libft/ft_split.c \
-			42_libft/ft_strchr.c \
-			42_libft/ft_substr.c \
-			42_libft/ft_calloc.c \
-			42_libft/ft_bzero.c \
-			42_libft/ft_memcpy.c \
-			42_libft/ft_strdup.c \
-			42_ft_printf/ft_printf.c \
-			42_ft_printf/ft_putadrs.c \
-			42_ft_printf/ft_putchar.c \
-			42_ft_printf/ft_puthex.c \
-			42_ft_printf/ft_putnbr.c \
-			42_ft_printf/ft_putstr.c \
-			42_ft_printf/ft_putunsigned.c \
-			42_ft_printf/ft_putuphex.c \
-			components/so_lower_upwall_imgs.c \
-			main/so_printmap.c \
-			main/main.c
+SRCS	=	Mandatory/checkmap/so_mapread.c \
+			Mandatory/checkmap/so_wallcheck.c \
+			Mandatory/checkmap/so_rectangle.c \
+			Mandatory/checkmap/so_maputils.c \
+			Mandatory/checkmap/so_mapname.c \
+			Mandatory/checkmap/so_invalidmsg.c \
+			Mandatory/checkmap/so_path.c \
+			Mandatory/moves/so_exitmove.c \
+			Mandatory/moves/so_movement.c \
+			Mandatory/moves/so_upmove.c \
+			Mandatory/moves/so_playerimg.c \
+			Mandatory/moves/so_rmove.c \
+			Mandatory/moves/so_lmove.c \
+			Mandatory/moves/so_keys.c \
+			Mandatory/moves/so_downmove.c \
+			Mandatory/components/so_others.c \
+			Mandatory/components/so_walls.c \
+			Mandatory/utils/get_next_line.c \
+			Mandatory/utils/ft_strjoin.c \
+			Mandatory/utils/ft_strlen.c \
+			Mandatory/utils/ft_split.c \
+			Mandatory/utils/ft_strchr.c \
+			Mandatory/utils/ft_substr.c \
+			Mandatory/utils/ft_calloc.c \
+			Mandatory/utils/ft_bzero.c \
+			Mandatory/utils/ft_memcpy.c \
+			Mandatory/utils/ft_strdup.c \
+			Mandatory/utils/ft_printf.c \
+			Mandatory/utils/ft_putadrs.c \
+			Mandatory/utils/ft_putchar.c \
+			Mandatory/utils/ft_puthex.c \
+			Mandatory/utils/ft_putnbr.c \
+			Mandatory/utils/ft_putstr.c \
+			Mandatory/utils/ft_putunsigned.c \
+			Mandatory/utils/ft_putuphex.c \
+			Mandatory/components/so_lower_upwall_imgs.c \
+			Mandatory/main/so_printmap.c \
+			Mandatory/main/main.c
 OBJS	= ${SRCS:.c=.o}
+
+BSRS = 
+OBJB	= ${BSRS:.c=.o}
+BNAME = so_long_bonus
+
+
 CC		= cc
 CFLAGS	= -Wall -Wextra -Werror -Imlx
 INCFLAG	= -I /usr/local/include
-MLXFLAG	= -L /usr/local/lib -lmlx -framework OpenGL -framework AppKit
+MLXFLAG	= -lmlx -framework OpenGL -framework AppKit
 RM		= rm -rf
 NAME	= Pokemon
 
-# game:%.o
-# 		${CC} -o game %.o 
-
 %.o:%.c
-		@${CC} ${CFLAGS} -c $< -o $@
+		${CC} ${CFLAGS} -c $< -o $@
 
 all:	${NAME}
 
 $(NAME): ${OBJS}
-		@$(CC) $(OBJS) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
-		# $(CC) $(OBJS) -lmlx -lXext -lX11 -o $(NAME)
-		clear
+		$(CC) $(OBJS) $(MLXFLAG) -o $(NAME)
+
+bonus: ${BNAME}
+
+$(BNAME): ${OBJB}
+		$(CC) $(OBJB) $(MLXFLAG) -o $(BNAME)	
 
 clean:
-		@${RM} ${OBJS}
+		${RM} ${OBJS}
 
 fclean:	clean
-		@${RM} ${NAME}
-		clear
+		${RM} ${NAME}
 
-re:		fclean all
 
-.PHONY:	all clean fclean re
+.PHONY:	all clean fclean

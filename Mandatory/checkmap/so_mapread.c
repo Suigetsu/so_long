@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 10:13:51 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/19 22:42:00 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/24 11:06:22 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	map_copy(t_vars *var, t_additionals *mapcpy)
 	int	i;
 
 	i = 0;
-	mapcpy->mapcopy = malloc(6 * sizeof(char *));
+	mapcpy->mapcopy = ft_calloc((var->w_h.height + 1), sizeof(char *));
 	while (var->w_h.game[i])
 	{
 		mapcpy->mapcopy[i] = ft_strdup(var->w_h.game[i]);

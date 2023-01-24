@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:42:54 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/20 22:31:42 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/23 15:33:35 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,6 @@ int	mapchars(char *filename)
 	s = get_next_line(fd);
 	while (s)
 	{
-		if (ft_strchr(s, '0') == 0 && ft_strchr(s, '1') == 0)
-			return (0);
 		test.col_count += collectibles_nbr(s);
 		test.strt_count += starting_pt(s);
 		test.ext_count += exits(s);

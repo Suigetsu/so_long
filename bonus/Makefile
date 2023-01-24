@@ -6,7 +6,7 @@
 #    By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 18:08:25 by mlagrini          #+#    #+#              #
-#    Updated: 2023/01/19 18:12:49 by mlagrini         ###   ########.fr        #
+#    Updated: 2023/01/23 12:40:42 by mlagrini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,6 +85,4 @@ fclean:	clean
 		${RM} ${NAME}
 		clear
 
-re:		fclean all
-
-.PHONY:	all clean fclean re
+.PHONY:	all clean fclean 

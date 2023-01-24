@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 10:34:45 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/19 22:23:49 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/23 23:31:10 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int	right_exit(t_vars *var)
 				mlx_put_image_to_window(var->mlx, var->win, \
 				var->img.exit, (var->j + 1) * 64, var->i * 64);
 				ft_printf("Congrats!\n");
-				exit(0);
+				mlx_destroy_window(var->mlx, var->win);
+				exit (0);
 			}
 			var->j++;
 		}
@@ -53,7 +54,8 @@ int	left_exit(t_vars *var)
 				mlx_put_image_to_window(var->mlx, var->win, \
 				var->img.exit, (var->j - 1) * 64, var->i * 64);
 				ft_printf("Congrats!\n");
-				exit(0);
+				mlx_destroy_window(var->mlx, var->win);
+				exit (0);
 			}
 			var->j++;
 		}
@@ -78,7 +80,8 @@ int	up_exit(t_vars *var)
 				mlx_put_image_to_window(var->mlx, var->win, \
 				var->img.exit, var->j * 64, (var->i - 1) * 64);
 				ft_printf("Congrats!\n");
-				exit(0);
+				mlx_destroy_window(var->mlx, var->win);
+				exit (0);
 			}
 			var->j++;
 		}
@@ -103,7 +106,8 @@ int	down_exit(t_vars *var)
 				mlx_put_image_to_window(var->mlx, var->win, \
 				var->img.exit, var->j * 64, (var->i + 1) * 64);
 				ft_printf("Congrats!\n");
-				exit(0);
+				mlx_destroy_window(var->mlx, var->win);
+				exit (0);
 			}
 			var->j++;
 		}
