@@ -6,11 +6,11 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 03:04:08 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/23 13:26:42 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/25 12:12:09 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/so_long.h"
+#include "../../so_long.h"
 
 static int	g_count;
 static int	g_exit_x;

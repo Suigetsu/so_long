@@ -6,11 +6,11 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 11:33:47 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/21 17:49:14 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/25 12:12:09 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/so_long.h"
+#include "../../so_long.h"
 
 static int	digitcount(int nbr)
 {

@@ -6,11 +6,11 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 10:34:45 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/23 23:21:57 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/25 12:12:09 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/so_long.h"
+#include "../../so_long.h"
 
 int	right_exit(t_vars *var)
 {

@@ -6,11 +6,11 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 14:41:19 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/23 23:21:01 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/25 12:12:09 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/so_long.h"
+#include "../../so_long.h"
 
 void	coll(t_vars *var)
 {

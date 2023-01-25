@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_giovanni.c                                      :+:      :+:    :+:   */
+/*   so_giovanni_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 21:33:43 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/20 22:44:55 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/25 12:12:09 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/so_long.h"
+#include "../../so_long.h"
 
 static void	giovanni_rmoves(t_vars *var)
 {

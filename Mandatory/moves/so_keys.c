@@ -6,19 +6,16 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 18:57:01 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/24 22:39:11 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/25 12:12:09 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/so_long.h"
+#include "../../so_long.h"
 
 static int	window_destroyer(int key, t_vars *var)
 {
 	if (key == 53)
-	{
-		mlx_destroy_window(var->mlx, var->win);
 		free_pokemon(var);
-	}
 	return (0);
 }
 
