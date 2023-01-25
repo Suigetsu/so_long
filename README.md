@@ -1,1 +1,3 @@
 # so_long
+
+## I'LL EXPLAIN THE PROJECT IN DETAILS SOON.
