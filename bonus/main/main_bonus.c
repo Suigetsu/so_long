@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:55:55 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/25 12:12:09 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/25 15:35:30 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,7 @@ int	main(int ac, char **av)
 	var.win = mlx_new_window(var.mlx, var.w_h.width * 64, \
 				var.w_h.height * 64, "pokebonus");
 	if (var.win == NULL)
-	{
-		free (var.win);
-		return (0);
-	}
+		free_pokemon(&var);
 	printmap(&var);
 	exit_xy(&var);
 	mlx_hook(var.win, 17, 0, destroy_with_mouse, &var);

@@ -6,16 +6,11 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 03:04:08 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/25 12:12:09 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/25 15:29:46 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../so_long.h"
-
-static int	g_count;
-static int	g_exit_x;
-static int	g_exit_y;
-static int	g_movecount;
 
 int	right_move(t_vars *var)
 {
@@ -28,14 +23,14 @@ int	right_move(t_vars *var)
 			if (var->w_h.game[var->i][var->j] == 'P' \
 				&& var->w_h.game[var->i][var->j + 1] != '1')
 			{
-				var->w_h.game[g_exit_x][g_exit_y] = 'E';
+				var->w_h.game[var->exit_x][var->exit_y] = 'E';
 				if (var->w_h.game[var->i][var->j + 1] == 'C')
-					g_count += 1;
+					var->e_count += 1;
 				var->w_h.game[var->i][var->j] = '0';
 				var->w_h.game[var->i][var->j + 1] = 'P';
-				right_evolution(g_count, var);
-				g_movecount += 1;
-				ft_printf("movement count: %d\n", g_movecount);
+				right_evolution(var->e_count, var);
+				var->movecount += 1;
+				ft_printf("movement count: %d\n", var->movecount);
 				return (0);
 			}
 			var->j++;
@@ -56,14 +51,14 @@ int	left_move(t_vars *var)
 			if (var->w_h.game[var->i][var->j] == 'P' \
 				&& var->w_h.game[var->i][var->j - 1] != '1')
 			{
-				var->w_h.game[g_exit_x][g_exit_y] = 'E';
+				var->w_h.game[var->exit_x][var->exit_y] = 'E';
 				if (var->w_h.game[var->i][var->j - 1] == 'C')
-					g_count += 1;
+					var->e_count += 1;
 				var->w_h.game[var->i][var->j] = '0';
 				var->w_h.game[var->i][var->j - 1] = 'P';
-				left_evolution(g_count, var);
-				g_movecount += 1;
-				ft_printf("movement count: %d\n", g_movecount);
+				left_evolution(var->e_count, var);
+				var->movecount += 1;
+				ft_printf("movement count: %d\n", var->movecount);
 				return (0);
 			}
 			var->j++;
@@ -84,14 +79,14 @@ int	up_move(t_vars *var)
 			if (var->w_h.game[var->i][var->j] == 'P' \
 				&& var->w_h.game[var->i - 1][var->j] != '1')
 			{
-				var->w_h.game[g_exit_x][g_exit_y] = 'E';
+				var->w_h.game[var->exit_x][var->exit_y] = 'E';
 				if (var->w_h.game[var->i - 1][var->j] == 'C')
-					g_count += 1;
+					var->e_count += 1;
 				var->w_h.game[var->i][var->j] = '0';
 				var->w_h.game[var->i - 1][var->j] = 'P';
-				up_evolution(g_count, var);
-				g_movecount += 1;
-				ft_printf("movement count: %d\n", g_movecount);
+				up_evolution(var->e_count, var);
+				var->movecount += 1;
+				ft_printf("movement count: %d\n", var->movecount);
 				return (0);
 			}
 			var->j++;
@@ -112,14 +107,14 @@ int	down_move(t_vars *var)
 			if (var->w_h.game[var->i][var->j] == 'P' \
 				&& var->w_h.game[var->i + 1][var->j] != '1')
 			{
-				var->w_h.game[g_exit_x][g_exit_y] = 'E';
+				var->w_h.game[var->exit_x][var->exit_y] = 'E';
 				if (var->w_h.game[var->i + 1][var->j] == 'C')
-					g_count += 1;
+					var->e_count += 1;
 				var->w_h.game[var->i][var->j] = '0';
 				var->w_h.game[var->i + 1][var->j] = 'P';
-				down_evolution(g_count, var);
-				g_movecount += 1;
-				ft_printf("movement count: %d\n", g_movecount);
+				down_evolution(var->e_count, var);
+				var->movecount += 1;
+				ft_printf("movement count: %d\n", var->movecount);
 				return (0);
 			}
 			var->j++;
@@ -139,8 +134,8 @@ void	exit_xy(t_vars *var)
 		{
 			if (var->w_h.game[var->i][var->j] == 'E')
 			{
-				g_exit_x = var->i;
-				g_exit_y = var->j;
+				var->exit_x = var->i;
+				var->exit_y = var->j;
 			}
 			var->j++;
 		}

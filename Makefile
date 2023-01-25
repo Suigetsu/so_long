@@ -6,7 +6,7 @@
 #    By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 18:08:25 by mlagrini          #+#    #+#              #
-#    Updated: 2023/01/24 22:32:32 by mlagrini         ###   ########.fr        #
+#    Updated: 2023/01/25 12:40:37 by mlagrini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -106,12 +106,11 @@ BSRS	=	bonus/checkmap/so_invalidmsg_bonus.c \
 OBJS	= ${SRCS:.c=.o} 
 OBJB	= ${BSRS:.c=.o}
 CC		= cc
-CFLAGS	= -Wall -Wextra -Werror -Imlx
-INCFLAG	= -I /usr/local/include
+CFLAGS	= -Wall -Wextra -Werror
 MLXFLAG	= -lmlx -framework OpenGL -framework AppKit
 RM		= rm -rf
-NAME	= Pokemon
-BNAME	= Pokemon_bonus
+NAME	= so_long
+BNAME	= so_long_bonus
 
 %.o:%.c
 		${CC} ${CFLAGS} -c $< -o $@
@@ -138,5 +137,7 @@ bclean:
 b_fclean: bclean
 		${RM} ${BNAME}
 
+re : fclean all
+bre : b_fclean bonus
 
-.PHONY:	all clean fclean bonus bclean b_fclean
+.PHONY:	all clean fclean bonus bclean b_fclean re bre
