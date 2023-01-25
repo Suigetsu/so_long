@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 17:45:11 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/25 12:12:09 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/25 15:30:02 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,7 @@ int	animation(t_vars *var)
 	static int	step;
 
 	step++;
-	// srand(time(0));
-	if (step == 1000)
+	if (step == 300)
 	{
 		if (rand() % 3 == 0)
 			mlx_put_image_to_window(var->mlx, var->win, var->anim.frame1, \

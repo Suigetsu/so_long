@@ -6,7 +6,7 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 10:52:23 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/23 22:41:48 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/25 14:55:30 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,6 +204,10 @@ typedef struct s_vars
 	int				count;
 	int				ev1;
 	int				ev2;
+	int				e_count;
+	int				exit_x;
+	int				exit_y;
+	int				movecount;
 	char			*counter;
 	t_path			path;
 	t_mapwh			w_h;
