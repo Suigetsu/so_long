@@ -6,16 +6,16 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 10:13:51 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/13 19:03:21 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/25 12:12:09 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/so_long.h"
+#include "../../so_long.h"
 
 void	map_read(char *filename, t_vars *var)
 {
-	int		fd;
-	char	*s;
+	int				fd;
+	char			*s;
 
 	fd = open(filename, O_RDONLY);
 	s = get_next_line(fd);
@@ -38,4 +38,17 @@ void	map_read(char *filename, t_vars *var)
 	}
 	var->w_h.game = ft_split(var->w_h.map, '\n');
 	free (var->w_h.map);
+}
+
+void	map_copy(t_vars *var, t_additionals *mapcpy)
+{
+	int	i;
+
+	i = 0;
+	mapcpy->mapcopy = ft_calloc((var->w_h.height + 1), sizeof(char *));
+	while (var->w_h.game[i])
+	{
+		mapcpy->mapcopy[i] = ft_strdup(var->w_h.game[i]);
+		i++;
+	}
 }

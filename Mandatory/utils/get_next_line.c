@@ -6,12 +6,11 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 18:42:23 by mlagrini          #+#    #+#             */
-/*   Updated: 2022/12/20 11:15:47 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/25 12:12:09 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/get_next_line.h"
-#include "../headers/libft.h"
+#include "../../so_long.h"
 
 int	ft_isnewline(char *s)
 {

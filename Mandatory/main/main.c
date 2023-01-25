@@ -6,30 +6,37 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:55:55 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/13 20:05:50 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/25 12:12:09 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/so_long.h"
+#include "../../so_long.h"
 
 int	main(int ac, char **av)
 {
-	t_vars	var;
-	
+	t_vars			var;
+	t_additionals	mapcpy;
+
+	ft_bzero(&var, sizeof(t_vars));
 	(void)ac;
 	var.mlx = mlx_init();
 	if (var.mlx == NULL)
-		return (1);
+		return (0);
 	validmap(av[1]);
 	map_read(av[1], &var);
-	var.win = mlx_new_window(var.mlx, var.w_h.width * 64, var.w_h.height * 64, "poketest");
+	map_copy(&var, &mapcpy);
+	player_finder(&var, &mapcpy);
+	valid_path(&var, &mapcpy);
+	var.win = mlx_new_window(var.mlx, var.w_h.width * 64, \
+				var.w_h.height * 64, "poke");
 	if (var.win == NULL)
 	{
 		free (var.win);
-		return (1);
+		return (0);
 	}
 	printmap(&var);
 	exit_xy(&var);
+	mlx_hook(var.win, 17, 0, destroy_with_mouse, &var);
 	mlx_hook(var.win, 2, 0, keys, &var);
 	mlx_loop(var.mlx);
 }

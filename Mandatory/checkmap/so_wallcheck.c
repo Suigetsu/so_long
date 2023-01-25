@@ -6,13 +6,13 @@
 /*   By: mlagrini <mlagrini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 09:30:47 by mlagrini          #+#    #+#             */
-/*   Updated: 2023/01/13 19:06:26 by mlagrini         ###   ########.fr       */
+/*   Updated: 2023/01/25 12:12:09 by mlagrini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/so_long.h"
+#include "../../so_long.h"
 
-int	upperwall(char *s)
+static int	upperwall(char *s)
 {
 	int	i;
 
@@ -26,67 +26,60 @@ int	upperwall(char *s)
 	return (1);
 }
 
-int	lowerwall(char	*filename)
+static int	lowerwall(char	*filename)
 {
-	int		fd;
-	int		c;
-	int		len;
-	char	*s;
+	t_walls	var;
 
-	c = 0;
-	len = 0;
-	fd = open(filename, O_RDONLY);
-	s = get_next_line(fd);
-	while (s)
+	var.c = 0;
+	var.len = 0;
+	var.fd = open(filename, O_RDONLY);
+	var.s = get_next_line(var.fd);
+	while (var.s)
 	{
-		free (s);
-		s = get_next_line(fd);
-		c += 1;
+		free (var.s);
+		var.s = get_next_line(var.fd);
+		var.c += 1;
 	}
-	free (s);
-	close (fd);
-	fd = open(filename, O_RDONLY);
-	while (len < c)
+	free (var.s);
+	close (var.fd);
+	var.fd = open(filename, O_RDONLY);
+	while (var.len < var.c)
 	{
-		s = get_next_line(fd);
-		len++;
-		free (s);
+		var.s = get_next_line(var.fd);
+		var.len++;
+		free (var.s);
 	}
-	c = upperwall(s);
-	if (c <= 0)
+	var.c = upperwall(var.s);
+	if (var.c <= 0)
 		return (0);
 	return (1);
 }
 
 int	wall_of_maria(char *filename)
 {
-	int		fd;
-	int		c;
-	int		len;
-	char	*s;
+	t_walls	var;
 
-	fd = open(filename, O_RDONLY);
-	s = get_next_line(fd);
-	len = ft_strlen(s);
-	c = upperwall(s);
-	if (c <= 0)
+	var.fd = open(filename, O_RDONLY);
+	var.s = get_next_line(var.fd);
+	var.len = ft_strlen(var.s);
+	var.c = upperwall(var.s);
+	if (var.c <= 0)
 		return (0);
-	c = 0;
-	while (s)
+	var.c = 0;
+	while (var.s)
 	{
-		if (s[0] != '1' || s[len - 2] != '1')
+		if (var.s[0] != '1' || var.s[var.len - 2] != '1')
 		{
-			free (s);
+			free (var.s);
 			return (0);
 		}
-		free (s);
-		s = get_next_line(fd);
-		c += 1;
+		free (var.s);
+		var.s = get_next_line(var.fd);
+		var.c += 1;
 	}
-	free (s);
-	close (fd);
-	c = lowerwall(filename);
-	if (c <= 0)
+	free (var.s);
+	var.c = lowerwall(filename);
+	if (var.c <= 0)
 		return (0);
 	return (1);
 }
